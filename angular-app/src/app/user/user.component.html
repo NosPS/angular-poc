@@ -1,0 +1,37 @@
+<div id="user-page">
+  <div id="user-background">
+    <div id="user-grid">
+      <div class="header">
+        <div class="input-icons" *ngIf="router.url == '/user'">
+          <mat-icon>search</mat-icon>
+          <input
+            class="search"
+            placeholder="search"
+            type="text"
+            [(ngModel)]="storeService.state.pagination.search"
+            (ngModelChange)="getUsers()"
+          />
+        </div>
+        <button
+          mat-raised-button
+          class="back-button"
+          (click)="onBackClick()"
+          *ngIf="router.url !== '/user'"
+        >
+          <mat-icon>arrow_back_ios</mat-icon> Back
+        </button>
+        <button
+          mat-raised-button
+          class="add-button"
+          (click)="onAddClick()"
+          *ngIf="router.url == '/user'"
+        >
+          <mat-icon>add</mat-icon> Add
+        </button>
+      </div>
+      <div class="center">
+        <router-outlet></router-outlet>
+      </div>
+    </div>
+  </div>
+</div>

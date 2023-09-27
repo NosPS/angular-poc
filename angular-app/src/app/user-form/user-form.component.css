@@ -1,0 +1,76 @@
+#user-form {
+  width: 100%;
+  height: fit-content;
+  gap: 2rem;
+  display: grid;
+  padding-top: 2rem;
+}
+
+.alert {
+  color: red;
+  font-size: small;
+  grid-column-start: 2;
+  margin-top: 4px;
+}
+
+.input-box {
+  width: 100%;
+  height: fit-content;
+  display: grid;
+  justify-self: center;
+  margin-left: 20%;
+}
+
+label {
+  align-self: center;
+}
+
+input {
+  width: 70%;
+  border-radius: 15px;
+  font-size: 16px;
+  align-self: center;
+  padding-top: 6px;
+  padding-bottom: 6px;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  border-color: rgb(0, 0, 0);
+  border-width: 1px;
+}
+
+select {
+  width: fit-content;
+  border-radius: 15px;
+  font-size: 16px;
+  align-self: center;
+  padding-top: 6px;
+  padding-bottom: 6px;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  border-color: rgb(0, 0, 0);
+  border-width: 1px;
+}
+
+#submit {
+  width: fit-content;
+  justify-self: end;
+  margin-right: 10%;
+  font-size: 16px;
+}
+
+#submit:enabled {
+  background-color: rgb(243, 74, 74);
+  color: white;
+}
+
+@media screen and (max-width: 800px) {
+  .input-box {
+    grid-template-rows: 1fr 1fr;
+  }
+}
+
+@media screen and (min-width: 801px) {
+  .input-box {
+    grid-template-columns: 10% 1fr;
+  }
+}

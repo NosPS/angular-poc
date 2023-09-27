@@ -1,0 +1,4 @@
+#sidebar {
+    height: calc(100% - 55px);
+    width: 30%;
+}

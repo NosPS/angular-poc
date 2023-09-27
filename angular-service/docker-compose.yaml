@@ -1,0 +1,30 @@
+version: '3'
+services:
+  angular-service:
+    container_name: angular-service
+    build:
+      context: .
+      dockerfile: ./apps/angular-service/Dockerfile
+    ports:
+      - '3000:3000'
+    volumes:
+      - .:/src:cached
+    environment:
+      NODE_ENV: local
+    env_file:
+      - .env.local
+    depends_on:
+      - users
+  users:
+    container_name: users
+    build:
+      context: .
+      dockerfile: ./apps/users/Dockerfile
+    ports:
+      - '3001:80'
+    volumes:
+      - .:/src:cached
+    environment:
+      NODE_ENV: local
+    env_file:
+      - .env.local

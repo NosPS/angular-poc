@@ -1,0 +1,65 @@
+<div id="table">
+  <div id="header">
+    <mat-checkbox
+      class="example-margin"
+      [checked]="storeService.state.checked.allChecked"
+      [color]="'primary'"
+      [indeterminate]="someComplete()"
+      (change)="setAll($event.checked)"
+    >
+    </mat-checkbox>
+    <button mat-button class="name" (click)="orderBy('name')">Name</button>
+    <span class="line"></span>
+    <button mat-button class="age" (click)="orderBy('age')">Age</button>
+    <span class="line"></span>
+    <button mat-button class="gender" (click)="orderBy('gender')">
+      Gender
+    </button>
+    <button class="delete" mat-icon-button color="warn" (click)="deleteAll()">
+      <mat-icon>delete</mat-icon>
+    </button>
+  </div>
+  <div id="body">
+    <div *ngFor="let user of storeService.state.data.users; let i = index">
+      <mat-checkbox
+        [(ngModel)]="storeService.state.checked.checkedList[i]"
+        [color]="'primary'"
+        (ngModelChange)="updateAllComplete()"
+      >
+      </mat-checkbox>
+      <p class="name">{{ user.name }}</p>
+      <span class="line"></span>
+      <p class="age">{{ user.age }}</p>
+      <span class="line"></span>
+      <p class="gender">{{ user.gender }}</p>
+      <button
+        class="edit"
+        mat-icon-button
+        color="primary"
+        (click)="editUser(user)"
+      >
+        <mat-icon>edit</mat-icon>
+      </button>
+      <button
+        class="delete"
+        mat-icon-button
+        color="warn"
+        (click)="deleteUser(user.id)"
+      >
+        <mat-icon>delete</mat-icon>
+      </button>
+    </div>
+  </div>
+  <div id="footer">
+    <mat-paginator
+      [length]="storeService.state.pagination.items"
+      [pageSize]="storeService.state.pagination.itemsPerPage"
+      [pageSizeOptions]="[5, 10, 25, 100]"
+      [pageIndex]="storeService.state.pagination.page - 1"
+      [showFirstLastButtons]="true"
+      aria-label="Select page"
+      (page)="handlerPageEvent($event)"
+    >
+    </mat-paginator>
+  </div>
+</div>

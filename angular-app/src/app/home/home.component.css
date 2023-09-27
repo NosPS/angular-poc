@@ -1,0 +1,30 @@
+#home-page {
+  width: 100%;
+  height: 100%;
+  background-color: rgb(246, 246, 246);
+}
+
+#home-grid {
+  display: grid;
+  width: 100%;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+
+#three-box {
+  width: 100vw;
+  height: calc(100vh - 55px);
+  background-image: url("../../assets/images/bg.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position-y: 15%;
+  background-attachment: fixed;
+}
+
+app-three {
+  width: 100%;
+  height: 100%;
+  position: sticky;
+}

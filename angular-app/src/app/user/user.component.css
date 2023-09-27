@@ -1,0 +1,86 @@
+#user-page {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  background-color: rgb(246, 246, 246);
+  justify-content: center;
+}
+
+#user-background {
+  margin-top: 3rem;
+  width: 90%;
+  background-color: white;
+  border-top-right-radius: 25px;
+  border-top-left-radius: 25px;
+}
+
+#user-grid {
+  display: grid;
+  width: 100%;
+  height: 100%;
+  grid-template:
+    "header"
+    "center";
+  grid-template-rows: auto 90%;
+}
+
+.header {
+  grid-area: header;
+  border-top-right-radius: 25px;
+  border-top-left-radius: 25px;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  padding-left: 2rem;
+  padding-right: 2rem;
+  background-image: linear-gradient(
+    to right,
+    rgb(155, 197, 251),
+    rgb(248, 136, 177)
+  );
+  display: grid;
+  grid-auto-flow: column;
+}
+
+.center {
+  grid-area: center;
+  overflow: hidden;
+  position: relative;
+}
+
+.add-button {
+  background-color: rgb(243, 74, 74);
+  color: white;
+  align-self: center;
+  justify-self: flex-end;
+}
+
+.back-button {
+  background-color: rgb(140, 141, 141);
+  color: white;
+  align-self: center;
+  justify-self: start;
+}
+
+.search {
+  width: 50%;
+  border-radius: 10px;
+  margin-right: 1rem;
+  border: 0;
+  height: fit-content;
+  align-self: center;
+  font-size: 16px;
+  padding: 8px 15px 8px 3rem;
+}
+
+.input-icons mat-icon {
+  position: absolute;
+  top: 6px;
+  left: 1rem;
+  color: gray;
+}
+
+.input-icons {
+  width: 100%;
+  position: relative;
+  align-self: center;
+}

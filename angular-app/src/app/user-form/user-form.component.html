@@ -1,0 +1,74 @@
+<form [formGroup]="userForm" #formDir="ngForm" (submit)="saveHandler()">
+  <div
+    id="user-form"
+    class="cross-validation"
+    [class.cross-validation-error]="userForm.errors?.['identityRevealed'] && (userForm.touched || userForm.dirty)"
+  >
+    <div id="name-input" class="input-box form-group">
+      <label for="name">Name</label>
+      <input
+        id="name"
+        name="name"
+        type="text"
+        class="form-control"
+        formControlName="name"
+        required
+      />
+      <div *ngIf="name.invalid && (name.dirty || name.touched)" class="alert">
+        <p *ngIf="name.errors?.['required']">** Name is required. **</p>
+        <p *ngIf="name.errors?.['name']">
+          ** Name must contain only normal letters, ., and -. **
+        </p>
+      </div>
+    </div>
+
+    <div id="age-input" class="input-box form-group">
+      <label for="age">Age</label>
+      <select
+        id="age"
+        name="age"
+        type="number"
+        class="form-control"
+        formControlName="age"
+        required
+      >
+        <option value="{{ age }}" *ngFor="let age of ages">{{ age }}</option>
+      </select>
+      <div *ngIf="age.invalid && (age.dirty || age.touched)" class="alert">
+        <p *ngIf="age.errors?.['required']">Age is required.</p>
+      </div>
+    </div>
+
+    <div id="gender-input" class="input-box form-group">
+      <label for="gender">Gender</label>
+      <select
+        id="gender"
+        name="gender"
+        type="number"
+        class="form-control"
+        formControlName="gender"
+        required
+      >
+        <option value="{{ gender }}" *ngFor="let gender of genders">
+          {{ gender }}
+        </option>
+      </select>
+      <div
+        *ngIf="gender.invalid && (gender.dirty || gender.touched)"
+        class="alert"
+      >
+        <p *ngIf="gender.errors?.['required']">Gender is required.</p>
+      </div>
+    </div>
+    <button
+      mat-raised-button
+      id="submit"
+      type="submit"
+      class="btn btn-default"
+      [disabled]="userForm.invalid"
+    >
+      <mat-icon>check</mat-icon>
+      Save
+    </button>
+  </div>
+</form>
